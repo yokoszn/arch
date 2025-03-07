@@ -1,6 +1,6 @@
 # Base Install Packages
-- linux-hardened: My preferred Kernel.
-- intel-ucode: - microcode support.
+- linux-hardened: Kernel.
+- intel-ucode: microcode support.
 - btrfs-progs: Necessary for working with Btrfs.
 - dosfstools: Important if you are using a FAT filesystem for partitions like EFI.
 - util-linux: A collection of essential utilities for Linux systems.
