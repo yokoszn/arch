@@ -236,7 +236,7 @@ Next, configure **unified kernel image (UKI)** creation. Arch’s `mkinitcpio` c
 * Find the preset for your kernel in `/etc/mkinitcpio.d/`. Since we installed `linux-hardened`, open `/etc/mkinitcpio.d/linux-hardened.preset` in an editor.
 * Edit the preset to define an **EFI image output**. For example, adjust it like below (actual file may differ slightly):
 
-  ```ini
+```ini
 # mkinitcpio preset file for the 'linux-hardened' package
 
 #ALL_config="/etc/mkinitcpio.conf"
@@ -255,7 +255,7 @@ fallback_uki="/efi/EFI/Linux/arch-linux-hardened-fallback.efi"
 fallback_options="-S autodetect"
 ```
 
-  In the above:
+In the above:
 
   * `ALL_kver` points to the kernel image installed by linux-hardened (the vmlinuz).
   * `ALL_microcode` picks up any CPU microcode files in /boot. This ensures Intel/AMD microcode is included in the unified image (make sure to install `intel-ucode` or `amd-ucode` package as needed).
@@ -263,6 +263,7 @@ fallback_options="-S autodetect"
   * `default_options="--splash ..."` is optional; it adds an Arch logo splash in boot menu. You may omit this or use a different BMP image if desired. It does not affect functionality.
 
 And now, let's generate our UKIs:
+
 ```
 $ arch-chroot /mnt mkinitcpio -P
 ```
