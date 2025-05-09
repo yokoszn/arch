@@ -47,13 +47,13 @@ Using `parted` (you can also use `fdisk` or `cgdisk`), partition the disk as fol
    Zap the drive:  
 ```bash   
    $ sgdisk -Z /dev/sda
-   ```
+```
 
 2. **Create Partitions**  
-   Create a 512MB EFI partition and the root partition:  
-   ```
-   $ sgdisk -n1:0:+512M -t1:ef00 -c1:EFI -N2 -t2:8304 -c2:LINUXROOT /dev/sda
-   ```
+   Create a 512MB EFI partition and the root partition:
+```
+$ sgdisk -n1:0:+512M -t1:ef00 -c1:EFI -N2 -t2:8304 -c2:LINUXROOT /dev/sda
+```
 
 ```
 $ mkfs.vfat -F32 -n EFI /dev/sda1
@@ -66,9 +66,9 @@ Leave `/dev/sda2` unformatted for now—we will set up encryption on it next.
 * Partition 2 (`/dev/sda2`): “cryptroot”, occupying the rest of the disk, intended for the encrypted Btrfs root.
 * 
 2. **Confirm Partitions**  
-   ```
-   $ partprobe -s /dev/sda
-   ```
+```
+$ partprobe -s /dev/sda
+```
 
 ```
 lsblk
@@ -112,13 +112,13 @@ After this, `/dev/mapper/linuxroot` will represent the decrypted view of the sto
 With the LUKS container open at `/dev/mapper/linuxroot`, create a Btrfs filesystem on it:
 
 1. Format BTRFS root partition:  
-   ```
-   $ mkfs.btrfs -f -L linuxroot /dev/mapper/linuxroot
-   ```
+ ```
+ $ mkfs.btrfs -f -L linuxroot /dev/mapper/linuxroot
+ ```
 Nice!, now let's mount our partitions, and create our BTRFS subvolumes.
 
 2. Mount Partitions:  
-   ```
+```
    $ mount /dev/mapper/linuxroot /mnt
    $ mkdir /mnt/efi
    $ mount /dev/vda1 /mnt/efi
@@ -128,7 +128,7 @@ Nice!, now let's mount our partitions, and create our BTRFS subvolumes.
    $ btrfs subvolume create /mnt/var/log
    $ btrfs subvolume create /mnt/var/cache
    $ btrfs subvolume create /mnt/var/tmp
-   ```
+```
 
 *(You can create additional subvolumes as needed. Common ones include `@var` or `@log` to exclude log files from snapshots, and `@snapshots` for snapshot storage. This guide will use just `@` and `@home` for simplicity.)*
 
