@@ -1,7 +1,5 @@
-## Introduction
 
-This guide provides a comprehensive walkthrough for installing Arch Linux with an advanced security-focused setup. We will configure the system with UEFI Secure Boot, full disk encryption (LUKS2), a Btrfs filesystem with multiple subvolumes, and automatic decryption via TPM 2.0. The boot process will use Unified Kernel Images (UKI) and the **systemd-boot** bootloader. We will also use the Arch **linux-hardened** kernel for additional security hardening, and cover optional components like the **kitty** terminal emulator, **sbctl** for Secure Boot key management, and **NetworkManager** for networking.
-
+---
 This configuration is designed to maximize security and integrity without sacrificing convenience:
 
 * **Secure Boot** ensures only trusted, signed boot software is executed, preventing unauthorized bootloader or kernel tampering.
@@ -10,6 +8,10 @@ This configuration is designed to maximize security and integrity without sacrif
 * **TPM 2.0 Integration** allows the system’s TPM to automatically unlock the encrypted disk when the system’s firmware and boot chain are in a known trusted state. This provides a passwordless boot (with fallbacks) bound to hardware security.
 * **Btrfs with Subvolumes** offers a modern CoW (Copy-on-Write) filesystem with advanced features like atomic snapshots, compression, and easy partitioning via subvolumes. Subvolumes will be used to separate system and home data, facilitating backups and snapshots.
 * **Hardened Kernel** (linux-hardened) applies extra patches and strict settings to mitigate exploits and enhance kernel security, providing stronger defaults than the standard kernel.
+
+## Introduction
+
+This guide provides a comprehensive walkthrough for installing Arch Linux with an advanced security-focused setup. We will configure the system with UEFI Secure Boot, full disk encryption (LUKS2), a Btrfs filesystem with multiple subvolumes, and automatic decryption via TPM 2.0. The boot process will use Unified Kernel Images (UKI) and the **systemd-boot** bootloader. 
 
 Each section of this guide will explain not only the steps to achieve the setup but also the rationale behind choices and the workings of each tool. **Important standards** such as the Discoverable Partitions Specification (DPS) and the Unified Kernel Image format will be explained in context. By the end, you will have a secure Arch Linux installation suitable for sensitive environments or as a robust daily-driver system.
 
@@ -47,13 +49,13 @@ Using `parted` (you can also use `fdisk` or `cgdisk`), partition the disk as fol
    Zap the drive:  
 ```bash   
    $ sgdisk -Z /dev/sda
-```
+   ```
 
 2. **Create Partitions**  
-   Create a 512MB EFI partition and the root partition:
-```
-$ sgdisk -n1:0:+512M -t1:ef00 -c1:EFI -N2 -t2:8304 -c2:LINUXROOT /dev/sda
-```
+   Create a 512MB EFI partition and the root partition:  
+   ```
+   $ sgdisk -n1:0:+512M -t1:ef00 -c1:EFI -N2 -t2:8304 -c2:LINUXROOT /dev/sda
+   ```
 
 ```
 $ mkfs.vfat -F32 -n EFI /dev/sda1
@@ -66,9 +68,9 @@ Leave `/dev/sda2` unformatted for now—we will set up encryption on it next.
 * Partition 2 (`/dev/sda2`): “cryptroot”, occupying the rest of the disk, intended for the encrypted Btrfs root.
 * 
 2. **Confirm Partitions**  
-```
-$ partprobe -s /dev/sda
-```
+   ```
+   $ partprobe -s /dev/sda
+   ```
 
 ```
 lsblk
@@ -112,13 +114,13 @@ After this, `/dev/mapper/linuxroot` will represent the decrypted view of the sto
 With the LUKS container open at `/dev/mapper/linuxroot`, create a Btrfs filesystem on it:
 
 1. Format BTRFS root partition:  
- ```
- $ mkfs.btrfs -f -L linuxroot /dev/mapper/linuxroot
- ```
+   ```
+   $ mkfs.btrfs -f -L linuxroot /dev/mapper/linuxroot
+   ```
 Nice!, now let's mount our partitions, and create our BTRFS subvolumes.
 
 2. Mount Partitions:  
-```
+   ```
    $ mount /dev/mapper/linuxroot /mnt
    $ mkdir /mnt/efi
    $ mount /dev/vda1 /mnt/efi
@@ -128,7 +130,7 @@ Nice!, now let's mount our partitions, and create our BTRFS subvolumes.
    $ btrfs subvolume create /mnt/var/log
    $ btrfs subvolume create /mnt/var/cache
    $ btrfs subvolume create /mnt/var/tmp
-```
+   ```
 
 *(You can create additional subvolumes as needed. Common ones include `@var` or `@log` to exclude log files from snapshots, and `@snapshots` for snapshot storage. This guide will use just `@` and `@home` for simplicity.)*
 
@@ -236,7 +238,7 @@ Next, configure **unified kernel image (UKI)** creation. Arch’s `mkinitcpio` c
 * Find the preset for your kernel in `/etc/mkinitcpio.d/`. Since we installed `linux-hardened`, open `/etc/mkinitcpio.d/linux-hardened.preset` in an editor.
 * Edit the preset to define an **EFI image output**. For example, adjust it like below (actual file may differ slightly):
 
-```ini
+  ```ini
 # mkinitcpio preset file for the 'linux-hardened' package
 
 #ALL_config="/etc/mkinitcpio.conf"
@@ -255,7 +257,7 @@ fallback_uki="/efi/EFI/Linux/arch-linux-hardened-fallback.efi"
 fallback_options="-S autodetect"
 ```
 
-In the above:
+  In the above:
 
   * `ALL_kver` points to the kernel image installed by linux-hardened (the vmlinuz).
   * `ALL_microcode` picks up any CPU microcode files in /boot. This ensures Intel/AMD microcode is included in the unified image (make sure to install `intel-ucode` or `amd-ucode` package as needed).
@@ -263,7 +265,6 @@ In the above:
   * `default_options="--splash ..."` is optional; it adds an Arch logo splash in boot menu. You may omit this or use a different BMP image if desired. It does not affect functionality.
 
 And now, let's generate our UKIs:
-
 ```
 $ arch-chroot /mnt mkinitcpio -P
 ```
