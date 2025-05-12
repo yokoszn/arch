@@ -42,7 +42,7 @@ First, convert the disk to GPT and create the necessary partitions:
 * **EFI System Partition (ESP):** This will hold the UEFI bootloader and the unified kernel images. We recommend 512 MB or 1 GB in size, formatted as FAT32.
 * **Root Partition:** Allocate the rest of the disk for the Arch Linux installation. This partition will be encrypted with LUKS2 and later formatted with Btrfs.
 
-Using `parted` (you can also use `fdisk` or `cgdisk`), partition the disk as follows:
+Using `parted` (you can also use `fdisk` or `sgdisk`), partition the disk as follows:
 
 
 **Prepare Disk**  
@@ -238,7 +238,7 @@ Next, configure **unified kernel image (UKI)** creation. Arch’s `mkinitcpio` c
 * Find the preset for your kernel in `/etc/mkinitcpio.d/`. Since we installed `linux-hardened`, open `/etc/mkinitcpio.d/linux-hardened.preset` in an editor.
 * Edit the preset to define an **EFI image output**. For example, adjust it like below (actual file may differ slightly):
 
-  ```ini
+```ini
 # mkinitcpio preset file for the 'linux-hardened' package
 
 #ALL_config="/etc/mkinitcpio.conf"
@@ -333,6 +333,7 @@ Now that the system can boot with the unified kernel image, we will enable UEFI 
 $ sudo sbctl create-keys 
 $ sudo sbctl enroll-keys -m
 ```
+
 We use the `-m` option to enroll the Microsoft vendor key along with our self-created platform key. If you're absolutely certain that none of your hardware has OPROMs signed by Microsoft, you can leave this option out. **WARNING**: Mistakes can potentially brick your system. Although it’s not ideal, it’s generally safer to include the Microsoft vendor key. _You have been warned!_
 
 * We do *not* need to create a file in `/boot/loader/entries/` for the UKI, because systemd-boot will see `ArchLinux-hardened.efi` in `EFI/Linux` and list it in the menu automatically. If you had multiple kernels or wanted custom kernel options for a specific entry, those would warrant a custom entry file, but here the embedded cmdline is sufficient.
@@ -352,6 +353,7 @@ $ sudo sbctl sign -s /efi/EFI/BOOT/BOOTX64.EFI
 $ sudo sbctl sign -s /efi/EFI/Linux/arch-linux-hardened.efi
 $ sudo sbctl sign -s /efi/EFI/Linux/arch-linux-hardened-fallback.efi
 ```
+
 ### Reinstall Kernel to Confirm Automatic Signing
 
 To ensure everything is working as expected, reinstall the kernel. During this process, the UKI should be resigned automatically:
@@ -367,6 +369,7 @@ Generating EFI bundles....
 ✓ Signed /efi/EFI/Linux/arch-linux-fallback.efi
 ✓ Signed /efi/EFI/Linux/arch-linux.efi
 ```
+
 ### Configure Automatic Unlocking of Root Filesystem
 
 After rebooting, configure the system to automatically unlock the root filesystem by binding a LUKS key to the TPM. This involves generating a new key, adding it to the volume for unlocking, and binding it to PCRs 0 and 7 (corresponding to the system firmware and Secure Boot state).
@@ -435,8 +438,6 @@ You have set up a base Arch Linux system with a robust security posture:
 Such a setup adheres to modern Linux security standards and is suitable for environments where both security and convenience are desired. It also illustrates the use of current Linux technologies (like systemd-boot, UKIs, and TPM integration) that are increasingly being adopted by various distributions.
 
 Going forward, remember to keep your Secure Boot keys safe (if you ever need to re-enroll them) and maintain backups of your data. If a major change (like firmware update or Secure Boot key change) causes the TPM unlock to stop working, you can always unlock with your passphrase and then reenroll the TPM key to realign with the new PCR state. This ensures that even as your system evolves, you can keep the convenience of auto-unlock without sacrificing security.
-
-Enjoy your secure Arch Linux system!
 
 ---
 
