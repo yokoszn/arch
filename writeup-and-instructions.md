@@ -4,8 +4,6 @@ This document provides a comprehensive walkthrough for installing Arch Linux wit
 
 Each section of this guide will explain not only the steps to achieve the setup but also the rationale behind choices and the workings of each tool. **Important standards** such as the Discoverable Partitions Specification (DPS) and the Unified Kernel Image format will be explained in context. By the end, you will have a secure Arch Linux installation suitable for sensitive environments or as a robust daily-driver system.
 
-> **Note:** This is a technical guide intended for users already comfortable with Linux basics and Arch Linux installation procedures. It assumes UEFI-capable hardware with TPM 2.0 support. For brevity, general Linux installation steps (like setting locale or creating a user) are mentioned but not deeply explained. Always refer to the official Arch Wiki for the most up-to-date details on specific commands and configuration files.
-
 ## Prerequisites and Preparation
 
 Before beginning the installation, ensure you have the following:
