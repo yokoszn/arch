@@ -1,41 +1,3 @@
-## **Overview of Linux and Arch Linux**
-
-Linux is a widely used open-source operating system kernel that serves as the foundation for a variety of operating systems, collectively known as Linux distributions (distros). Linux is renowned for its flexibility, security, and customization, making it an ideal choice for developers, system administrators, and power users.
-
-**Arch Linux**, a rolling release distribution, is one of the most popular and powerful Linux distros available. Known for its simplicity and minimalism, Arch gives users complete control over their system. Unlike many user-friendly distros that come with pre-installed software, Arch provides a clean slate, allowing users to build their systems from the ground up.
-
-### **Common Uses of Arch Linux**
-
-- **Development**: Arch Linux is often favored by developers who require a flexible, customizable system.
-    
-- **Server Management**: With its focus on simplicity and control, Arch is also a solid choice for managing servers.
-    
-- **Gaming**: Arch Linux is widely used by gaming enthusiasts, especially since it supports Steam through the Valve-developed **Steam Deck**, which uses Arch Linux as its base. Valve's upstream contributions to the development of Arch help optimize gaming experiences and keep the system cutting-edge.
-
-## **Package Management on Arch Linux**
-
-Arch Linux uses **pacman** as its default package manager, providing a powerful tool for installing, updating, and managing software packages. In addition, Arch supports the **AUR** (Arch User Repository), allowing users to install community-maintained packages.
-
-### 1. **pacman**:
-
-- The default package manager for Arch Linux.
-
-```
-sudo pacman -Syu  # Update system
-```
-### 2. **yay/paru**:
-
-- These are **AUR helpers** that make it easier to install packages from the Arch User Repository.
-```
-yay -S package-name # Install application or package
-```
-### 3. **Flatpak**:
-
-- Flatpak is a universal package format that works across different Linux distributions. It is particularly useful for applications that need to run in a sandboxed environment, ensuring they don’t interfere with the rest of the system.
-    
-- **System packages** (installed through pacman) are preferred for critical system components, while **user packages** (via Flatpak) are useful for software that requires sandboxing.
----
-
 ## **Trusted Platform Module (TPM) and Secure Boot**
 ### **What is Secure Boot?**
 
@@ -65,56 +27,6 @@ While Secure Boot and TPM offer substantial protection against certain attack ve
 
 An **Evil Maid attack** occurs when an attacker with physical access to a system replaces or modifies critical files, such as the bootloader or kernel, with malicious versions. The attacker typically aims to gain access to encrypted data or install malware on the system. Secure Boot and TPM significantly mitigate the risk of such attacks by ensuring that only trusted software can be executed during the boot process.
 
----
-## **Desktop Environments
-
-### **What is a Desktop Environment?**
-
-A **Desktop Environment (DE)** is a collection of software that provides a graphical user interface (GUI) for interacting with the operating system. It typically includes a window manager, file manager, system settings, and other tools to make the user experience more intuitive.
-
-### **Popular Desktop Environments**
-
-- **KDE Plasma**: A highly customizable and feature-rich desktop environment known for its modern design and robust functionality. KDE is perfect for users who prefer control over the look and feel of their system.
-    
-- **GNOME**: A simpler, more streamlined desktop environment designed for ease of use. GNOME focuses on providing a clean and minimalistic user experience.
-    
-- **i3**: A tiling window manager that’s perfect for users who prefer a more hands-on approach to managing windows. i3 allows you to efficiently manage your workspace with keyboard shortcuts.
----
-### ## **What is Hyprland?**
-
-Hyprland is a dynamic tiling window manager designed specifically for Wayland. Unlike more traditional desktop environments like GNOME or KDE, Hyprland focuses on efficiency and minimalism. It allows users to control and manage their workspace purely through keyboard-driven commands. This approach makes it highly customizable, offering flexibility for power users and those seeking a clean, productive workspace.
-
-Since it operates on Wayland, Hyprland takes full advantage of modern display server technologies, offering better performance and security compared to older Xorg-based systems.
-## **Components Needed for Hyprland**
-
-To set up Hyprland as your primary window manager, there are specific components that must be in place to ensure a fully functional and efficient desktop environment:
-### 1. **Wayland**
-
-- Hyprland requires Wayland to handle graphical display and input management. Unlike Xorg, Wayland provides a more modern and secure display server, which allows for better performance and security.
-    
-- It is essential for Hyprland, as the window manager is designed specifically to work with Wayland and will not function on Xorg.
-### 2. **Compositor**
-
-- The compositor is responsible for rendering windows and managing how they appear on the screen. In the case of Hyprland, the compositor is built into the window manager, making it an integral component of the setup.
-    
-- Hyprland’s compositor provides features such as tiling, floating, and stacking windows, all of which are controlled through the keyboard for efficiency.
-### 3. **Window Manager**
-
-- Hyprland itself serves as the window manager. It controls the layout of windows, allowing users to manage how they are tiled, stacked, and interacted with.
-    
-- Hyprland is dynamic, meaning windows automatically adjust their size and placement when you add or remove them, ensuring an organized and efficient workspace.
-### 4. **Terminal Emulator**
-
-- A terminal emulator is necessary for interacting with the system, executing commands, and accessing the Linux shell. Some popular terminal emulators for Hyprland include:
-    
-    - **Kitty**: A fast and GPU-accelerated terminal.
-        
-    - **Alacritty**: A highly customizable terminal emulator.
-        
-- These terminal emulators allow users to interact with the system efficiently, using keyboard shortcuts for quick access.
-### 5. **Launcher**
-
-- A launcher is used to quickly open applications without navigating through a file manager. Tools like **rofi** or **dmenu** are commonly used with Hyprland. These launchers are highly customizable and provide quick access to applications via a keyboard-driven interface.
 ### **My Hyprland Setup: Hyprdots**
 
 - My personal Hyprland setup, called **Hyprdots**, is documented on GitHub. It includes configurations for Hyprland, keybindings, and other essential system tweaks. This setup provides a clean and efficient workspace that’s perfect for power users who want a tailored, minimalist desktop environment.
@@ -138,7 +50,7 @@ This ensures that commands are presented in a way that is easy for users to copy
 
 ### **Documentation Distribution**
 
-In a professional IT environment, documentation is essential for ensuring that systems can be easily managed and maintained. **IT Glue** is an excellent knowledge management system (KMS) that provides secure, organized, and accessible documentation. It allows teams to store configurations, passwords, and processes for quick access, ensuring operational continuity.
+In any IT environment, documentation is essential for ensuring that systems can be easily managed and maintained. **IT Glue** is an excellent knowledge management system (KMS) that provides secure, organized, and accessible documentation. It allows teams to store configurations, passwords, and processes for quick access, ensuring operational continuity.
 
 In addition to IT Glue, **Confluence** is another popular choice for creating and sharing documentation, especially in larger teams or organizations. Confluence allows for collaborative documentation, version control, and centralized storage of procedures and manuals.
 
