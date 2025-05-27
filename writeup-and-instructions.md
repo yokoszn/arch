@@ -1,17 +1,6 @@
-
----
-This configuration is designed to maximize security and integrity without sacrificing convenience:
-
-* **Secure Boot** ensures only trusted, signed boot software is executed, preventing unauthorized bootloader or kernel tampering.
-* **Unified Kernel Image (UKI)** bundles the kernel, initramfs, and related resources into a single EFI-executable file, simplifying Secure Boot signing and improving boot reliability.
-* **LUKS2 Disk Encryption** protects data at rest with strong encryption. LUKS2 is chosen for its support of TPM-based unlocking and modern features.
-* **TPM 2.0 Integration** allows the system’s TPM to automatically unlock the encrypted disk when the system’s firmware and boot chain are in a known trusted state. This provides a passwordless boot (with fallbacks) bound to hardware security.
-* **Btrfs with Subvolumes** offers a modern CoW (Copy-on-Write) filesystem with advanced features like atomic snapshots, compression, and easy partitioning via subvolumes. Subvolumes will be used to separate system and home data, facilitating backups and snapshots.
-* **Hardened Kernel** (linux-hardened) applies extra patches and strict settings to mitigate exploits and enhance kernel security, providing stronger defaults than the standard kernel.
-
 ## Introduction
 
-This guide provides a comprehensive walkthrough for installing Arch Linux with an advanced security-focused setup. We will configure the system with UEFI Secure Boot, full disk encryption (LUKS2), a Btrfs filesystem with multiple subvolumes, and automatic decryption via TPM 2.0. The boot process will use Unified Kernel Images (UKI) and the **systemd-boot** bootloader. 
+This document provides a comprehensive walkthrough for installing Arch Linux with an advanced security-focused setup. We will configure the system with UEFI Secure Boot, full disk encryption (LUKS2), a Btrfs filesystem with multiple subvolumes, and automatic decryption via TPM 2.0. The boot process will use Unified Kernel Images (UKI) and the **systemd-boot** bootloader. 
 
 Each section of this guide will explain not only the steps to achieve the setup but also the rationale behind choices and the workings of each tool. **Important standards** such as the Discoverable Partitions Specification (DPS) and the Unified Kernel Image format will be explained in context. By the end, you will have a secure Arch Linux installation suitable for sensitive environments or as a robust daily-driver system.
 
@@ -27,7 +16,7 @@ Before beginning the installation, ensure you have the following:
 * **TPM 2.0 Module** – A TPM 2.0 chip enabled in firmware. This will be used for binding disk unlock to device state.
 * **Sufficient Disk Space** – We will format and repartition the disk (all data will be erased). Ensure any important data is backed up.
 
-It’s also recommended to familiarize yourself with UEFI firmware menus (for enabling Secure Boot and enrolling keys) and have a **backup of recovery keys/passwords** for the encrypted disk. In case the TPM auto-unlock fails (e.g., after hardware changes or firmware updates), you will need the LUKS passphrase to unlock the disk.
+> **Note:** It’s recommended to familiarize yourself with UEFI firmware (for enabling Secure Boot and enrolling keys) and have a **backup of recovery keys/passwords** for the encrypted disk. In case the TPM auto-unlock fails (e.g., after hardware changes or firmware updates), you will need the LUKS passphrase to unlock the disk.
 
 Throughout this guide, replace device identifiers and UUIDs with those specific to your system (the examples assume a single drive `/dev/sda` or an NVMe drive `/dev/nvme0n1. )
 
