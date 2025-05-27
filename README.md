@@ -10,11 +10,11 @@ It applies to individuals working as technical writers, designers, developers an
 > **Note:** No licensing, legislative or certification requirements apply to this unit at the time of publication.
 
 # Table of Contents
-[README.md](README) - you are here!
-[Project Document.md](ProjectDocument) - supporting information :)
+[arch/README.md](README) - you are here!
+[arch/Project Document.md](ProjectDocument) - supporting information :)
 
-[quick-setup.md](Quick-Setup) - Shorter, Commands only.
-[writeup-and-instructions.md](Writeup-And-Instructions) + Resources for further research.
+[arch/quick-setup.md](Quick-Setup) - Shorter, Commands only.
+[arch/writeup-and-instructions.md](Writeup-And-Instructions) + Resources for further research.
 
 > **Note:** This is a technical guide intended for users already comfortable with Linux basics and Arch Linux installation procedures. It assumes UEFI-capable hardware with TPM 2.0 support. For brevity, general Linux installation steps (like setting locale or creating a user) are mentioned but not deeply explained. Always refer to the official Arch Wiki for the most up-to-date details on specific commands and configuration files.
 
