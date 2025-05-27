@@ -1,6 +1,6 @@
 # Hi!
 
-This Repo contains arch linux installation instructions aswell as a techical write up on setting up a hardened installation of arch linux. taking a look at UEFI, Secure Boot, TPM Unlocking, LUKS2 Disk Encryption, setting up a BTRFS with subvolmes for easy snapshots, some information about the process of booting a linux machine, signing drivers and systemd-boot (no grub) mkiniticpio.
+This Repo contains arch linux installation instructions aswell as a techical write up on setting up a hardened installation of arch linux. 
 
 ### Project for ICT40120 | Cert IV - Information Technology (Networking)
 #### ICTICT435 Create technical documentation
