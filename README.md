@@ -2,6 +2,8 @@
 
 This Repo contains arch linux installation instructions aswell as a techical write up on setting up a hardened installation of arch linux. 
 
+I have documented this project with the goal of meeting the [AQF requirements](https://training.gov.au/TrainingComponentFiles/ICT/ICTICT435_R1.pdf)
+
 ### Project for ICT40120 | Cert IV - Information Technology (Networking)
 #### ICTICT435 Create technical documentation
 This unit describes the skills and knowledge required to create technical documentation that is clear and understandable for the target audience and both easy to navigate and apply.
@@ -11,9 +13,10 @@ It applies to individuals working as technical writers, designers, developers an
 
 # Table of Contents
 - [README](README.md) - you are here!
-- [Supporting Info](Supporting-Info.md) - supporting information :)
+- [Writeup And Instructions](writeup-and-instructions.md) - Long form, in-depth look.
 - [Quick Setup](quick-setup.md) - Shorter, Commands only.
-- [Writeup And Instructions](writeup-and-instructions.md) + Resources for further research.
+- [Supporting Info](Supporting-Info.md) - supporting information :)
+
 
 > **Note:** This is a technical guide intended for users already comfortable with Linux basics and Arch Linux installation procedures. It assumes UEFI-capable hardware with TPM 2.0 support. For brevity, general Linux installation steps (like setting locale or creating a user) are mentioned but not deeply explained. Always refer to the official Arch Wiki for the most up-to-date details on specific commands and configuration files.
 
