@@ -1,10 +1,11 @@
 # Hi!
 
-This Repo contains arch linux installation instructions aswell as a techical write up on setting up a hardened installation of arch linux. 
+This Repo contains Arch Linux installation instructions, aswell as a techical write up on setting up a hardened installation of Arch Linux. 
 
-I have documented this project with the goal of meeting the [AQF requirements](https://training.gov.au/TrainingComponentFiles/ICT/ICTICT435_R1.pdf)
+---
 
 ### Project for ICT40120 | Cert IV - Information Technology (Networking)
+This project has been documented with the goal of meeting the [AQF requirements](https://training.gov.au/TrainingComponentFiles/ICT/ICTICT435_R1.pdf)
 #### ICTICT435 Create technical documentation
 This unit describes the skills and knowledge required to create technical documentation that is clear and understandable for the target audience and both easy to navigate and apply.
 It applies to individuals working as technical writers, designers, developers and support staff, who are required to produce technical support documents of Information and Communications Technology (ICT) related work.
