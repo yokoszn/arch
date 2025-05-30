@@ -52,7 +52,8 @@ This ensures that commands are presented in a way that is easy for users to copy
 ---
 ### **Distributing the Arch Linux Installation Guide**
 
-The Arch Linux installation guide is distributed via **GitHub**, where users can access, fork, and contribute to the guide. GitHub is widely used for open-source projects, and it allows users to easily collaborate, report issues, and track changes in the documentation. 
+The installation guide has been distributed via **GitHub**, where users can access, fork, and contribute to the guide. GitHub is widely used for open-source projects, and it allows users to easily collaborate, report issues, and track changes in the documentation. 
+
 ---
 ### **Conclusion**
 
