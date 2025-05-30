@@ -29,6 +29,7 @@ The **Trusted Platform Module (TPM)** is a hardware-based security feature that 
 TPM is essential for hardware-based security features like **BitLocker encryption** and **Secure Boot**, which help ensure that the device remains secure throughout its operation, from boot to shutdown.
 
 ---
+
 ### **Attacks and Protection**
 
 While Secure Boot and TPM offer substantial protection against certain attack vectors, they do not protect against all types of attacks. For example, they do not prevent attacks after the operating system has booted, such as malware infections or privilege escalation attacks within the OS. It is crucial to implement additional security measures like encryption, firewalls, and regular system updates to protect against these risks.
@@ -38,6 +39,7 @@ While Secure Boot and TPM offer substantial protection against certain attack ve
 An **Evil Maid attack** occurs when an attacker with physical access to a system replaces or modifies critical files, such as the bootloader or kernel, with malicious versions. The attacker typically aims to gain access to encrypted data or install malware on the system. Secure Boot and TPM significantly mitigate the risk of such attacks by ensuring that only trusted software can be executed during the boot process.
 
 ---
+
 ## **Formatting and Documentation Standards**
 
 For clarity and readability, documentation related to system setup and installation is typically written in **Markdown** format. Markdown is a lightweight markup language that allows easy formatting of text, headings, lists, links, and more.
@@ -50,11 +52,10 @@ sudo pacman -Syu
 This ensures that commands are presented in a way that is easy for users to copy and paste directly into their terminals.
 
 ---
+
 ### **Distributing the Arch Linux Installation Guide**
 
 The installation guide has been distributed via **GitHub**, where users can access, fork, and contribute to the guide. GitHub is widely used for open-source projects, and it allows users to easily collaborate, report issues, and track changes in the documentation. 
 
----
-### **Conclusion**
 
 This guide provides a comprehensive setup for Arch Linux with Secure Boot, TPM, and BTRFS, with a focus on security, performance, and customization while following best practices for documentation. Users who follow the documentation should be able to create a manually configured, secure Arch Linux environment ready for desktop or server applications.
