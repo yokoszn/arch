@@ -23,11 +23,3 @@ It applies to individuals working as technical writers, designers, developers an
 Linux is a widely used open-source operating system kernel that serves as the foundation for a variety of operating systems, collectively known as Linux distributions (distros). Linux is renowned for its flexibility, security, and customization, making it an ideal choice for developers, system administrators, and power users.
 
 Arch Linux, a rolling release distribution, is one of the most popular and powerful Linux distros available. Known for its simplicity and minimalism, Arch gives users complete control over their system. Unlike many user-friendly distros that come with pre-installed software, Arch provides a clean slate, allowing users to build their systems from the ground up.
-
-For clarity and readability, documentation related to system setup and installation is written in **Markdown** format. Markdown is a lightweight markup language that allows easy formatting of text, headings, lists, links, and more.
-
-- **Code blocks** are used extensively in technical documentation to provide clear examples of terminal commands or configuration files. For example:
-
-```
-sudo pacman -Syu
-```
