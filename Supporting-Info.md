@@ -1,5 +1,14 @@
 # **Supporting Information**
 
+Consult the [Arch Wiki Hardware Pages](https://wiki.archlinux.org/title/Category:Laptops) for additional configuration tips tailored to your device, such as touchpad gestures, power management, or device-specific quirks.
+
+## Resources:
+
+- [Unified Extensible Firmware Interface/Secure Boot](https://archlinux.org/packages/?name=intel-media-driver)
+- [Secure your boot process: UEFI + Secureboot + EFISTUB + Luks2 + lvm + ArchLinux](https://nwildner.com/posts/2020-07-04-secure-your-boot-process/)  
+- [How is hibernation supported on machines with UEFI Secure Boot?](https://security.stackexchange.com/questions/29122/how-is-hibernation-supported-on-machines-with-uefi-secure-boot)  
+- [Authenticated Boot and Disk Encryption on Linux](https://0pointer.net/blog/authenticated-boot-and-disk-encryption-on-linux.html)
+
 ### **mkinitcpio and Unified Kernel Images**
 
 The **mkinitcpio** tool is used to generate an initial ramdisk (initrd) image for Linux systems. This initrd is essential during the boot process as it contains the necessary drivers and modules required to mount the root filesystem and initialize the kernel.
@@ -7,8 +16,8 @@ The **mkinitcpio** tool is used to generate an initial ramdisk (initrd) image fo
 A **Unified Kernel Image (UKI)** is a single, self-contained image that includes the kernel and initrd. It simplifies the boot process by reducing the number of files and components needed to start the system. UKIs are becoming more common due to their ease of deployment and ability to enhance the security of the boot process.
 
 ---
+
 ## **Trusted Platform Module (TPM) and Secure Boot**
-### **What is Secure Boot?**
 
 **Secure Boot** is a security standard developed to ensure that a system only boots trusted software. It works by verifying that each piece of software (including bootloaders, kernel, and drivers) is signed with a trusted key before being loaded into the system. If the software isn’t signed with a valid key, the boot process is halted, preventing malicious software (such as rootkits) from running.
 
@@ -23,6 +32,7 @@ TPM is essential for hardware-based security features like **BitLocker encryptio
 ### **Attacks and Protection**
 
 While Secure Boot and TPM offer substantial protection against certain attack vectors, they do not protect against all types of attacks. For example, they do not prevent attacks after the operating system has booted, such as malware infections or privilege escalation attacks within the OS. It is crucial to implement additional security measures like encryption, firewalls, and regular system updates to protect against these risks.
+
 ### **Evil Maid Attacks**
 
 An **Evil Maid attack** occurs when an attacker with physical access to a system replaces or modifies critical files, such as the bootloader or kernel, with malicious versions. The attacker typically aims to gain access to encrypted data or install malware on the system. Secure Boot and TPM significantly mitigate the risk of such attacks by ensuring that only trusted software can be executed during the boot process.
@@ -43,7 +53,6 @@ This ensures that commands are presented in a way that is easy for users to copy
 ### **Distributing the Arch Linux Installation Guide**
 
 The Arch Linux installation guide is distributed via **GitHub**, where users can access, fork, and contribute to the guide. GitHub is widely used for open-source projects, and it allows users to easily collaborate, report issues, and track changes in the documentation. 
-
 ---
 ### **Conclusion**
 
