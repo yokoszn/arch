@@ -11,7 +11,7 @@ It applies to individuals working as technical writers, designers, developers an
 
 # Table of Contents
 - [README](README.md) - you are here!
-- [ProjectDocument](ProjectDocument.md) - supporting information :)
+- [Supporting Info](Supporting-Info.md) - supporting information :)
 - [Quick Setup](quick-setup.md) - Shorter, Commands only.
 - [Writeup And Instructions](writeup-and-instructions.md) + Resources for further research.
 
