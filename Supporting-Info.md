@@ -1,4 +1,4 @@
-This guide provides a comprehensive setup for Arch Linux with Secure Boot, TPM, and BTRFS, with a focus on security, performance, and customization while following best practices for documentation. Users who follow the documentation should be able to create a manually configured, secure Arch Linux environment ready for desktop or server applications.
+This guide provides a comprehensive setup for Arch Linux with Secure Boot, TPM, and BTRFS, with a focus on security, performance, and customization, while following best practices for documentation. Users who follow the documentation should be able to create a manually configured, secure Arch Linux environment ready for desktop or server applications.
 
 # **Supporting Information**
 
