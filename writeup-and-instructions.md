@@ -425,13 +425,3 @@ You have set up a base Arch Linux system with a robust security posture:
 Such a setup adheres to modern Linux security standards and is suitable for environments where both security and convenience are desired. It also illustrates the use of current Linux technologies (like systemd-boot, UKIs, and TPM integration) that are increasingly being adopted by various distributions.
 
 Going forward, remember to keep your Secure Boot keys safe (if you ever need to re-enroll them) and maintain backups of your data. If a major change (like firmware update or Secure Boot key change) causes the TPM unlock to stop working, you can always unlock with your passphrase and then reenroll the TPM key to realign with the new PCR state. This ensures that even as your system evolves, you can keep the convenience of auto-unlock without sacrificing security.
-
----
-
-Consult the [Arch Wiki Hardware Pages](https://wiki.archlinux.org/title/Category:Laptops) for additional configuration tips tailored to your device, such as touchpad gestures, power management, or device-specific quirks.
-## Resources:
-
-- [Unified Extensible Firmware Interface/Secure Boot](https://archlinux.org/packages/?name=intel-media-driver)
-- [Secure your boot process: UEFI + Secureboot + EFISTUB + Luks2 + lvm + ArchLinux](https://nwildner.com/posts/2020-07-04-secure-your-boot-process/)  
-- [How is hibernation supported on machines with UEFI Secure Boot?](https://security.stackexchange.com/questions/29122/how-is-hibernation-supported-on-machines-with-uefi-secure-boot)  
-- [Authenticated Boot and Disk Encryption on Linux](https://0pointer.net/blog/authenticated-boot-and-disk-encryption-on-linux.html)
