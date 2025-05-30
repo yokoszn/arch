@@ -1,3 +1,5 @@
+This guide provides a comprehensive setup for Arch Linux with Secure Boot, TPM, and BTRFS, with a focus on security, performance, and customization while following best practices for documentation. Users who follow the documentation should be able to create a manually configured, secure Arch Linux environment ready for desktop or server applications.
+
 # **Supporting Information**
 
 Consult the [Arch Wiki Hardware Pages](https://wiki.archlinux.org/title/Category:Laptops) for additional configuration tips tailored to your device, such as touchpad gestures, power management, or device-specific quirks.
@@ -56,6 +58,3 @@ This ensures that commands are presented in a way that is easy for users to copy
 ### **Distributing the Arch Linux Installation Guide**
 
 The installation guide has been distributed via **GitHub**, where users can access, fork, and contribute to the guide. GitHub is widely used for open-source projects, and it allows users to easily collaborate, report issues, and track changes in the documentation. 
-
-
-This guide provides a comprehensive setup for Arch Linux with Secure Boot, TPM, and BTRFS, with a focus on security, performance, and customization while following best practices for documentation. Users who follow the documentation should be able to create a manually configured, secure Arch Linux environment ready for desktop or server applications.
